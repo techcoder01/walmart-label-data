@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shipping Data Processor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Shipping Data Processor</h1>
+        
+        <div id="alert-container"></div>
+        
+        <div class="upload-container">
+            <h2>Upload File</h2>
+            <form id="upload-form" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="file">Select your order data file (Excel, CSV, or TXT):</label>
+                    <input type="file" id="file" name="file" accept=".xlsx,.xls,.csv,.txt">
+                </div>
+                <button type="submit" id="submit-btn">Process File</button>
+            </form>
+            <div id="loading" class="hidden">
+                <div class="spinner"></div>
+                <p>Processing your file...</p>
+            </div>
+        </div>
+        
+        <div class="instructions">
+            <h3>Instructions:</h3>
+            <p>1. Upload an Excel, CSV, or tab-delimited text file containing your order data.</p>
+            <p>2. The application will extract the following information:</p>
+            <ul>
+                <li>Customer Name</li>
+                <li>Customer Phone Number</li>
+                <li>Shipping Address (Address Line 1 and 2)</li>
+                <li>City, State, Zip</li>
+            </ul>
+            <p>3. A CSV file will be generated with the proper format for shipping processing.</p>
+            <p>4. All other fields will be left empty for manual entry.</p>
+        </div>
+    </div>
+    
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
+</body>
+</html>
